@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Główna strona</title>
+</head>
+<body>
+    <h1>Ogłoszenia</h1>
+    {% for item in boards %}
+    <div>
+        <h2>{{ item.title }}</h2>
+        <p>{{ item.content }}</p>
+        <p>{{ item.published|date:"d.m.Y H:i:s" }}</p>
+    </div>
+    {% endfor %}
+</body>
+</html>
