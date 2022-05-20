@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>{% block title %}Deska ogłoszeń{% endblock title %}</title>
+</head>
+<body>
+    <header>
+        <h1><a href="{% url 'home' %}">Ogłoszenia</a></h1>
+    </header>
+    <nav>
+        <a href="{% url 'home' %}">Główna</a>
+        {% for rubric in rubrics %}
+        <a href="{% url 'by_rubric' rubric.pk %}">{{ rubric.name }}</a>
+        {% endfor %}
+        {% block addboard %}<a href="{% url 'add_board' %}">Dodać ogłoszenie</a>{% endblock addboard %}
+    </nav>
+    <section>{% block content %}{% endblock content %}</section>
+    <section>{% block footer %}<br>@2022 Prawa autorskie chronione.@{% endblock footer %}</section>
+</body>
+</html>

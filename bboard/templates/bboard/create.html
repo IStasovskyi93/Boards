@@ -1,0 +1,13 @@
+{% extends 'layout/basic.html' %}
+
+{% block title %}Dodawanie ogłoszenia{% endblock title %}
+
+{% block content %}
+    {% block addboard %}{% endblock addboard %}
+    <h1>Dodawanie ogłoszenia</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Dodać">
+    </form>
+{% endblock content %}

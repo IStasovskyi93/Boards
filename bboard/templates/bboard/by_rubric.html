@@ -1,15 +1,14 @@
 {% extends 'layout/basic.html' %}
 
-{% block title %}Strona główna{% endblock title %}
+{% block title %}{{ current_rubric.name }}{% endblock title %}
 
 {% block content %}
+    <h2>Kategoria: {{ current_rubric.name }}</h2>
     {% for board in boards %}
-    <div class="b">
+    <div>
         <h2>{{ board.title }}</h2>
         <p>{{ board.content }}</p>
-        <p><a href="{% url 'by_rubric' board.rubric.pk %}">{{ board.rubric.name }}</a></p>
         <p>{{ board.published|date:"d.m.Y H:i:s" }}</p>
     </div>
     {% endfor %}
 {% endblock content %}
-
